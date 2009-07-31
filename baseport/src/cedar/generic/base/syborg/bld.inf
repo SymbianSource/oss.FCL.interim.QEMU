@@ -1,0 +1,89 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of the License "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description:
+*
+*/
+
+PRJ_PLATFORMS
+ARMV5
+
+PRJ_EXPORTS
+syborg.oby						\epoc32\rom\include\	//
+base.iby						\epoc32\rom\include\	//
+rom\base_syborg.iby				\epoc32\rom\include\	//
+rom\header.iby					\epoc32\rom\syborg\		//
+rom\kernel.iby					\epoc32\rom\syborg\		//
+specific\syborg.cfg				\epoc32\rom\syborg\		//
+estart.txt						\epoc32\rom\syborg\		//
+trk_l1.ini						\epoc32\data\Z\trk\trk_syborg.ini
+
+PRJ_EXTENSIONS
+start		extension		base/genexec
+option		EXTRA_SRC_PATH  $(TO_BLDINF)/../e32/kernel
+end
+
+PRJ_MMPFILES
+..\e32\kernel\ekern
+..\e32\kernel\kc_exe
+..\e32\kernel\exmoncommon
+..\e32\drivers\medint\medint
+..\f32\etshell\eshell
+..\e32\drivers\trace\btracex
+..\e32\euser\variant_euser
+
+// SYBORG components
+kasyborg						// Variant library
+serial\serial					// Serial / UART ports
+fb\fb							// Framebuffer
+keyboard\keyboard				// Keyboard
+pointer\pointer					// Pointer
+monitor\monap					// Crash Debugger output
+
+keymap\keymap					// Key mapping library
+
+// platform device library - for flattened device tree (FDT)
+svpplatform\fdt
+
+//Host Filesystem
+svphostfs\svphostfs
+svphostfs\svphostfsdriver
+svphostfs\svphostfsstart
+svphostfs\svphostfsy
+
+//Snap Device
+svpsnapdriver\svpsnapdriver
+svpsnapdriver\snapapp
+
+PRJ_EXTENSIONS
+start		extension		base/config
+option		PREFIX			_syborg_
+option		HALPATH			$(TO_BLDINF)/..
+option		SOURCE			$(TO_BLDINF)/hal
+end
+
+PRJ_MMPFILES
+hal\hal
+
+PRJ_EXTENSIONS
+start		extension		base/bootstrap
+option		NAME			_syborg_bootloader_bootrom
+option		MEMMODEL		multiple
+//option		MEMMODEL		flexible
+//option		MEMMODEL		moving
+option		SOURCES			syborg.s
+option		INCLUDES		config.inc syborg.inc
+option		E32PATH			$(TO_BLDINF)/..
+option		EXTRA_INC_PATH	$(TO_BLDINF)/bootstrap
+option		EXTRA_SRC_PATH	$(TO_BLDINF)/bootstrap 
+end

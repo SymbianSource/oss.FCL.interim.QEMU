@@ -1,0 +1,107 @@
+/*
+* Copyright (c) 2009 Nokia Corporation and/or its subsidiary(-ies).
+* All rights reserved.
+* This component and the accompanying materials are made available
+* under the terms of the License "Eclipse Public License v1.0"
+* which accompanies this distribution, and is available
+* at the URL "http://www.eclipse.org/legal/epl-v10.html".
+*
+* Initial Contributors:
+* Nokia Corporation - initial contribution.
+*
+* Contributors:
+*
+* Description: Used by techview roms
+*
+*/
+
+#ifndef __BASE_SYBORG_IBY__
+#define __BASE_SYBORG_IBY__
+
+#define HEAPMAX(x)
+//#define FIXED	fixed
+#define FIXED
+
+kerneltrace 0x80000000
+
+memmodel multiple 0x100000
+//memmodel flexible 0x100000 0x1000 -0x4000
+//dlldatatop 0x7f000000
+
+multikernel
+bootbinary=		KERNEL_DIR\_PLATFORM_NAME_bootloader_bootrom.bin
+
+debugport 0
+romsize=0x2000000
+romlinearbase=0x80000000
+romalign=0x10
+kerneldataaddress=0xC8000000
+kernelheapmin=0x08000			// calculated at boot time
+kernelheapmax=0x00FFC000
+dataaddress=0x400000
+defaultstackreserve=0x200000
+romchecksum=0x12345678
+
+// Must align kernel to 16K boundary since exception vectors will be mapped at 0xFFFF0000
+primary[VARID]=		KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_ekern.exe		\sys\bin\ekern.exe	code-align 0x4000
+
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_btracex.ldd 	\sys\bin\btracex.ldd
+file=			ABI_DIR\DEBUG_DIR\btracec.dll	            		\sys\bin\btracec.dll
+
+define BTRACEX_LDD _PLATFORM_NAME_btracex.ldd
+            
+variant[VARID]=		KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_kasyborg.dll 	\sys\bin\kasyborg.dll
+
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_exmoncommon.dll    	\sys\bin\exmoncommon.dll
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_exmondebug.dll     	\sys\bin\exmondebug.dll
+
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\kdebug.dll			        \sys\bin\kdebug.dll
+
+#ifdef RMDEBUG
+#include "..\include\trk.iby"
+#endif
+
+// IEEE-mode VFP support
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\evfp.dll			        \sys\bin\evfp.dll
+
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_lcd.dll		\sys\bin\lcd.dll
+
+device[VARID]=		KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_eserial.pdd		\sys\bin\euart1.pdd
+device[VARID]=		KERNEL_DIR\DEBUG_DIR\ecomm.ldd				\sys\bin\ecomm.ldd
+
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\elocd.ldd				\sys\bin\elocd.ldd
+
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_epointer.dll	\sys\bin\epointer.dll
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_medint.pdd	        \sys\bin\medint.pdd
+
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\exstart.dll		 	\sys\bin\exstart.dll
+
+// Keyboard driver
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_ekeyb.dll		\sys\bin\ekeyb.dll
+
+// Kernel pipe
+device[VARID]=		KERNEL_DIR\DEBUG_DIR\pipelib.ldd			\sys\bin\pipelib.ldd
+
+// Host Filesystem
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_svphostfsdriver.ldd sys\bin\svphostfsdriver.ldd
+file=			KERNEL_DIR\DEBUG_DIR\svphostfsy.fsy			sys\bin\svphostfsy.fsy
+file=			KERNEL_DIR\DEBUG_DIR\svphostfs.exe			sys\bin\svphostfs.exe
+file=			KERNEL_DIR\DEBUG_DIR\svphostfsstart.exe			sys\bin\sysstart.exe
+
+// file=			KERNEL_DIR\DEBUG_DIR\stdnew.dll				sys\bin\stdnew.dll
+
+// Snap Driver
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_svpsnapdriver.ldd	sys\bin\svpsnapdriver.ldd
+file=			KERNEL_DIR\DEBUG_DIR\snapapp.exe			sys\bin\snapapp.exe
+
+// Estart drive mapping setup files.
+data=			EPOCROOT##epoc32\rom\syborg\estart.txt			\sys\data\estart.txt
+
+define	HAL_DLL		_PLATFORM_NAME_hal.dll
+define	ESTART_EXE	e32strt.exe
+define	KEYMAP_FILE	_PLATFORM_NAME_ekdata
+#define	SCDV_DLL        _PLATFORM_NAME_scdv.dll
+#define	EUSER_DLL	_PLATFORM_NAME_euser.dll
+
+#endif  // __BASE_SYBORG_IBY__
+
