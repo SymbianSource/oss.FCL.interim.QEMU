@@ -37,5 +37,5 @@ abld -k target armv5
 abld test -k target armv5
 
 SECTION_DIRS
-..\e32test\group
-..\syborg\test
+..\..\..\kernelhwsrv\kerneltest\e32test\group
+test

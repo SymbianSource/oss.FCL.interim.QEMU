@@ -31,44 +31,44 @@ abld library armv5
 abld -k target armv5
 
 SECTION_DIRS
-..\e32utils\group
-..\e32
-..\e32\compsupp
-..\f32\group
-..\hal
+..\..\..\kernelhwsrv\kerneltest\e32utils\group
+..\..\..\kernelhwsrv\kernel\eka
+..\..\..\kernelhwsrv\kernel\eka\compsupp
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\group
+..\..\..\kernelhwsrv\halservices\hal
 ..\syborg
-..\domain\group
+..\..\..\kernelhwsrv\userlibandfileserver\domainmgr\group
 
-..\e32\drivers\pbus\mmc\sdcard\sdcard3c
-..\e32\drivers\pbus\mmc\sdcard\sdcard4c
+..\..\..\kernelhwsrv\kernel\eka\drivers\pbus\mmc\sdcard\sdcard3c
+..\..\..\kernelhwsrv\kernel\eka\drivers\pbus\mmc\sdcard\sdcard4c
 
-..\e32\drivers\usbho
-..\e32\drivers\usbho\usbd
+..\..\..\kernelhwsrv\kernel\eka\drivers\usbho
+..\..\..\kernelhwsrv\kernel\eka\drivers\usbho\usbd
 
-..\e32\drivers\bsp
-..\e32\drivers\debug
-..\e32\drivers\ecomm
-..\e32\drivers\esound
-..\e32\drivers\ethernet
-..\e32\drivers\locmedia
-..\e32\drivers\media
-..\e32\drivers\trace
-..\e32\drivers\usbc
-..\e32\euser
-..\e32\ewsrv
+..\..\..\kernelhwsrv\kernel\eka\drivers\bsp
+..\..\..\kernelhwsrv\kernel\eka\drivers\debug
+..\..\..\kernelhwsrv\kernel\eka\drivers\ecomm
+..\..\..\kernelhwsrv\kernel\eka\drivers\esound
+..\..\..\kernelhwsrv\kernel\eka\drivers\ethernet
+..\..\..\kernelhwsrv\kernel\eka\drivers\locmedia
+..\..\..\kernelhwsrv\kernel\eka\drivers\media
+..\..\..\kernelhwsrv\kernel\eka\drivers\trace
+..\..\..\kernelhwsrv\kernel\eka\drivers\usbc
+..\..\..\kernelhwsrv\kernel\eka\euser
+..\..\..\kernelhwsrv\kernel\eka\ewsrv
 
-..\f32\estart
-..\f32\etshell
-..\f32\iso9660
-..\f32\ntfs
-..\f32\scomp
-..\f32\sfat
-..\f32\sfat32
-..\f32\sftl
-..\f32\slffs
-..\f32\smassstorage
-..\f32\srofs
-..\f32\srom
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\estart
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\etshell
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\iso9660
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\ntfs
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\scomp
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\sfat
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\sfat32
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\sftl
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\slffs
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\smassstorage
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\srofs
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\srom
 
-..\e32test\group
-..\syborg\test
+..\..\..\kernelhwsrv\kerneltest\e32test\group
+test

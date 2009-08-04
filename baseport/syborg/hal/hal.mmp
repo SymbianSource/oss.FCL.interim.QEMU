@@ -22,7 +22,7 @@ TARGETTYPE		dll
 LINKAS			hal.dll
 NOEXPORTLIBRARY
 
-SOURCEPATH		..\..\hal\src
+SOURCEPATH		..\..\..\..\kernelhwsrv\halservices\hal\src
 SOURCE			hal_main.cpp userhal.cpp
 
 SOURCEPATH		\epoc32\build\generatedcpp\hal
@@ -31,7 +31,7 @@ SOURCE			VariantTarget(values,cpp) VariantTarget(config,cpp)
 SYSTEMINCLUDE	\epoc32\include \epoc32\include\kernel
 
 LIBRARY			euser.lib
-DEFFILE			..\..\hal\~\hal.def
+DEFFILE			..\..\..\..\kernelhwsrv\halservices\hal\~\hal.def
 
 UID				0x1000008d 0x100039e8
 VENDORID        0x70000001

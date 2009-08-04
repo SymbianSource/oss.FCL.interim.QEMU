@@ -27,7 +27,7 @@ SOURCE			keymap.cpp
 
 LIBRARY			euser.lib
 
-DEFFILE			..\..\e32\~\ekdata.def
+DEFFILE			..\..\..\..\kernelhwsrv\kernel\eka\~\ekdata.def
 
 NOSTRICTDEF
 

@@ -30,17 +30,17 @@ trk_l1.ini						\epoc32\data\Z\trk\trk_syborg.ini
 
 PRJ_EXTENSIONS
 start		extension		base/genexec
-option		EXTRA_SRC_PATH  $(TO_BLDINF)/../e32/kernel
+option		EXTRA_SRC_PATH  $(TO_BLDINF)/../../../kernelhwsrv/kernel/eka/kernel
 end
 
 PRJ_MMPFILES
-..\e32\kernel\ekern
-..\e32\kernel\kc_exe
-..\e32\kernel\exmoncommon
-..\e32\drivers\medint\medint
-..\f32\etshell\eshell
-..\e32\drivers\trace\btracex
-..\e32\euser\variant_euser
+..\..\..\kernelhwsrv\kernel\eka\kernel\ekern
+..\..\..\kernelhwsrv\kernel\eka\kernel\kc_exe
+..\..\..\kernelhwsrv\kernel\eka\kernel\exmoncommon
+..\..\..\kernelhwsrv\kernel\eka\drivers\medint\medint
+..\..\..\kernelhwsrv\userlibandfileserver\fileserver\etshell\eshell
+..\..\..\kernelhwsrv\kernel\eka\drivers\trace\btracex
+..\..\..\kernelhwsrv\kernel\eka\euser\variant_euser
 
 // SYBORG components
 kasyborg						// Variant library
