@@ -107,19 +107,19 @@ macro FASTTRACE_KERNEL_ALL
 macro __EMI_SUPPORT__
 
 #define VariantTarget(name,ext)     _syborg_##name##.##ext
-#define AsspNKernIncludePath        \..\..\..\unref\orphan\cedgen\src\cedar\generic\base\syborg\specific
-#define VariantMediaDefIncludePath  AsspNKernIncludePath        
+#define AsspNKernIncludePath        /sf/os/QEMU/baseport/syborg/specific
+#define VariantMediaDefIncludePath  /epoc32/include/syborg        
 #define PlatformLib		   		    kasyborg.lib
 
-systeminclude	\epoc32\include\memmodel\epoc\mmubase
-//systeminclude	\epoc32\include\memmodel\epoc\moving
-//systeminclude	\epoc32\include\memmodel\epoc\moving\arm
-//systeminclude	\epoc32\include\memmodel\epoc\flexible
-//systeminclude	\epoc32\include\memmodel\epoc\flexible\arm
-systeminclude	\epoc32\include\memmodel\epoc\multiple
-systeminclude	\epoc32\include\memmodel\epoc\multiple\arm
+systeminclude	/epoc32/include/memmodel/epoc/mmubase
+//systeminclude	/epoc32/include/memmodel/epoc/moving
+//systeminclude	/epoc32/include/memmodel/epoc/moving/arm
+//systeminclude	/epoc32/include/memmodel/epoc/flexible
+//systeminclude	/epoc32/include/memmodel/epoc/flexible/arm
+systeminclude	/epoc32/include/memmodel/epoc/multiple
+systeminclude	/epoc32/include/memmodel/epoc/multiple/arm
 
-systeminclude	..\..\..\kernelhwsrv\driversupport\socassp\interface
+systeminclude	../../../kernelhwsrv/driversupport/socassp/interface
 
 // Uncomment for T_USERCOMDEB test
 //#define BUILD_TESTS
