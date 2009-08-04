@@ -19,14 +19,16 @@ PRJ_PLATFORMS
 ARMV5
 
 PRJ_EXPORTS
-syborg.oby						\epoc32\rom\include\	//
-base.iby						\epoc32\rom\include\	//
-rom\base_syborg.iby				\epoc32\rom\include\	//
-rom\header.iby					\epoc32\rom\syborg\		//
-rom\kernel.iby					\epoc32\rom\syborg\		//
-specific\syborg.cfg				\epoc32\rom\syborg\		//
-estart.txt						\epoc32\rom\syborg\		//
-trk_l1.ini						\epoc32\data\Z\trk\trk_syborg.ini
+syborg.oby						/epoc32/rom/include/	//
+base.iby						/epoc32/rom/include/	//
+rom/base_syborg.iby				/epoc32/rom/include/	//
+rom/header.iby					/epoc32/rom/syborg/		//
+rom/kernel.iby					/epoc32/rom/syborg/		//
+specific/syborg.cfg				/epoc32/rom/syborg/		//
+estart.txt						/epoc32/rom/syborg/		//
+trk_l1.ini						/epoc32/data/Z/trk/trk_syborg.ini
+
+specific/variantmediadef.h /epoc32/include/syborg/variantmediadef.h
 
 PRJ_EXTENSIONS
 start		extension		base/genexec
@@ -34,46 +36,46 @@ option		EXTRA_SRC_PATH  $(TO_BLDINF)/../../../kernelhwsrv/kernel/eka/kernel
 end
 
 PRJ_MMPFILES
-..\..\..\kernelhwsrv\kernel\eka\kernel\ekern
-..\..\..\kernelhwsrv\kernel\eka\kernel\kc_exe
-..\..\..\kernelhwsrv\kernel\eka\kernel\exmoncommon
-..\..\..\kernelhwsrv\kernel\eka\drivers\medint\medint
-..\..\..\kernelhwsrv\userlibandfileserver\fileserver\etshell\eshell
-..\..\..\kernelhwsrv\kernel\eka\drivers\trace\btracex
-..\..\..\kernelhwsrv\kernel\eka\euser\variant_euser
+../../../kernelhwsrv/kernel/eka/kernel/ekern
+../../../kernelhwsrv/kernel/eka/kernel/kc_exe
+../../../kernelhwsrv/kernel/eka/kernel/exmoncommon
+../../../kernelhwsrv/kernel/eka/drivers/medint/medint
+../../../kernelhwsrv/userlibandfileserver/fileserver/etshell/eshell
+../../../kernelhwsrv/kernel/eka/drivers/trace/btracex
+../../../kernelhwsrv/kernel/eka/euser/variant_euser
 
 // SYBORG components
 kasyborg						// Variant library
-serial\serial					// Serial / UART ports
-fb\fb							// Framebuffer
-keyboard\keyboard				// Keyboard
-pointer\pointer					// Pointer
-monitor\monap					// Crash Debugger output
+serial/serial					// Serial / UART ports
+fb/fb							// Framebuffer
+keyboard/keyboard				// Keyboard
+pointer/pointer					// Pointer
+monitor/monap					// Crash Debugger output
 
-keymap\keymap					// Key mapping library
+keymap/keymap					// Key mapping library
 
 // platform device library - for flattened device tree (FDT)
-svpplatform\fdt
+svpplatform/fdt
 
 //Host Filesystem
-svphostfs\svphostfs
-svphostfs\svphostfsdriver
-svphostfs\svphostfsstart
-svphostfs\svphostfsy
+svphostfs/svphostfs
+svphostfs/svphostfsdriver
+svphostfs/svphostfsstart
+svphostfs/svphostfsy
 
 //Snap Device
-svpsnapdriver\svpsnapdriver
-svpsnapdriver\snapapp
+svpsnapdriver/svpsnapdriver
+svpsnapdriver/snapapp
 
 PRJ_EXTENSIONS
 start		extension		base/config
 option		PREFIX			_syborg_
-option		HALPATH			$(TO_BLDINF)/..
-option		SOURCE			$(TO_BLDINF)/hal
+option		HALPATH			$(EXTENSION_ROOT)/../../../kernelhwsrv/halservices/hal/../.
+option		SOURCE			$(EXTENSION_ROOT)/hal
 end
 
 PRJ_MMPFILES
-hal\hal
+hal/hal
 
 PRJ_EXTENSIONS
 start		extension		base/bootstrap
