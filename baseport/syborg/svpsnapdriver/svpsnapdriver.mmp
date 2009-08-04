@@ -18,7 +18,7 @@
 //macro	__KERNEL_MODE__
 
 #include <variant.mmh>
-#include   <kernel\kern_ext.mmh>
+#include   <kernel/kern_ext.mmh>
 
 systeminclude		AsspNKernIncludePath
 

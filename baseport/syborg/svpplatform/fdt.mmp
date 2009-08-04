@@ -19,7 +19,7 @@ target			libfdt.lib
 targettype		klib
 
 systeminclude 		libfdt
-systeminclude 		\epoc32\include\stdapis
+systeminclude 		/epoc32/include/stdapis
 
 sourcepath		libfdt
 

@@ -18,12 +18,12 @@
 #define	__MONAP_MMP__
 
 #include    <variant.mmh>
-#include    "..\..\..\..\kernelhwsrv\kernel\eka\kernel\exmondebug.mmp"
+#include    "../../../../kernelhwsrv/kernel/eka/kernel/exmondebug.mmp"
 
 TARGET			VariantTarget(exmondebug,dll)
 
-SYSTEMINCLUDE	\epoc32\include\drivers
-SYSTEMINCLUDE   ..\serial
+SYSTEMINCLUDE	/epoc32/include/drivers
+SYSTEMINCLUDE   ../serial
 
 SOURCEPATH		.
 SOURCE			monitor.cpp

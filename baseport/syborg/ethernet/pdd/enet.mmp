@@ -16,13 +16,13 @@
 */
 
 #include <variant.mmh>
-#include "kernel\kern_ext.mmh"
+#include "kernel/kern_ext.mmh"
 
 TARGET			VariantTarget(ethernet,pdd)
 TARGETTYPE		pdd
 ROMTARGET       ethernet.pdd
 
-SYSTEMINCLUDE	\epoc32\include\drivers
+SYSTEMINCLUDE	/epoc32/include/drivers
 SYSTEMINCLUDE	AsspNKernIncludePath
 SOURCEPATH	    .
 

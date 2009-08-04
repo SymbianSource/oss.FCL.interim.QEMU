@@ -16,7 +16,7 @@
 */
 
 #include <variant.mmh>
-#include "kernel\kern_ext.mmh"
+#include "kernel/kern_ext.mmh"
 
 TARGET			VariantTarget(epointer,dll)
 TARGETTYPE		kext
@@ -33,8 +33,8 @@ LIBRARY			PlatformLib
 
 //NOEXPORTLIBRARY
 
-//DEFFILE			..\e32\~\empty.def
-//DEFFILE			.\~\cmse.def
+//DEFFILE			../e32/~/empty.def
+//DEFFILE			./~/cmse.def
 
 //NOSTRICTDEF
 

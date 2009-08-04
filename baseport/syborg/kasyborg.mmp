@@ -16,7 +16,7 @@
 */
 
 #include <variant.mmh>
-#include "kernel\kern_ext.mmh"
+#include "kernel/kern_ext.mmh"
 
 TARGET			VariantTarget(kasyborg,dll)
 TARGETTYPE		var
@@ -24,16 +24,16 @@ TARGETTYPE		var
 EXPORTLIBRARY	kasyborg
 LINKAS			kasyborg.dll
 
-SYSTEMINCLUDE   .\specific
+SYSTEMINCLUDE   ./specific
 
-SOURCEPATH		.\specific
+SOURCEPATH		./specific
 SOURCE		    syborg.cpp interrupts.cpp assp.cpp
 SOURCE		    syborg.cia interrupts.cia
 
 // now specified in kern_ext.lib
 //LIBRARY			ekern.lib
 
-DEFFILE			.\~\kasyborg.def
+DEFFILE			./~/kasyborg.def
 
 NOSTRICTDEF
 

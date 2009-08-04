@@ -18,12 +18,12 @@
 //macro	__KERNEL_MODE__
 
 #include <variant.mmh>
-#include   <kernel\kern_ext.mmh>
+#include   <kernel/kern_ext.mmh>
 
 systeminclude		AsspNKernIncludePath
 systeminclude		inc
-systeminclude		..\svpplatform\libfdt
-systeminclude 		\epoc32\include\stdapis
+systeminclude		../svpplatform/libfdt
+systeminclude 		/epoc32/include/stdapis
 
 target			VariantTarget(svphostfsdriver,ldd)
 linkas			svphostfsdriver.ldd

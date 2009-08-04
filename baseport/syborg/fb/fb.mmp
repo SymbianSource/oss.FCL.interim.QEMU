@@ -16,7 +16,7 @@
 */
 
 #include <variant.mmh>
-#include "kernel\kern_ext.mmh"
+#include "kernel/kern_ext.mmh"
 
 TARGET			VariantTarget(lcd,dll)
 TARGETTYPE		kext
