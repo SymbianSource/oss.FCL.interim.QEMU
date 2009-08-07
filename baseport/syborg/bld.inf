@@ -32,7 +32,7 @@ specific/variantmediadef.h /epoc32/include/syborg/variantmediadef.h
 
 PRJ_EXTENSIONS
 start		extension		base/genexec
-option		EXTRA_SRC_PATH  $(TO_BLDINF)/../../../kernelhwsrv/kernel/eka/kernel
+option		EXTRA_SRC_PATH  $(EXTENSION_ROOT)/../../../kernelhwsrv/kernel/eka/kernel
 end
 
 PRJ_MMPFILES
@@ -70,7 +70,7 @@ svpsnapdriver/snapapp
 PRJ_EXTENSIONS
 start		extension		base/config
 option		PREFIX			_syborg_
-option		HALPATH			$(EXTENSION_ROOT)/../../../kernelhwsrv/halservices/hal/../.
+option		HALPATH			$(EXTENSION_ROOT)/../../../kernelhwsrv/halservices
 option		SOURCE			$(EXTENSION_ROOT)/hal
 end
 
@@ -85,7 +85,7 @@ option		MEMMODEL		multiple
 //option		MEMMODEL		moving
 option		SOURCES			syborg.s
 option		INCLUDES		config.inc syborg.inc
-option		E32PATH			$(TO_BLDINF)/..
-option		EXTRA_INC_PATH	$(TO_BLDINF)/bootstrap
-option		EXTRA_SRC_PATH	$(TO_BLDINF)/bootstrap 
+option		E32PATH			$(EXTENSION_ROOT)/../../../kernelhwsrv/kernel
+option		EXTRA_INC_PATH	$(EXTENSION_ROOT)/bootstrap
+option		EXTRA_SRC_PATH	$(EXTENSION_ROOT)/bootstrap 
 end
