@@ -5,12 +5,12 @@ baseport/
 
 docs/
 	Various documentation about the baseport, peripherals and how to use QEMU.
-	The wiki folders contains a dump from Wiki documentation, this the unfortunate .doc format.
+	The wiki folders contains a dump from Wiki documentation, thus the unfortunate .doc format.
 
 symbian-qemu-0.9.1-12/
 	A version of QEMU with some extra features not yet available in the QEMU mainline.
-	A corresponding set of Windows binaries is available from the Symbian Foundation 
-  wiki: see http://developer.symbian.org/wiki/index.php/SYBORG/QEMU
+	A corresponding set of Windows/Linux binaries is available from the Symbian Foundation wiki
+        http://developer.symbian.org/wiki/index.php/SYBORG/QEMU
 
 Some notes;
 
@@ -27,5 +27,5 @@ Some notes;
 
 * Throughout the documentation the SVP is referenced. SVP stands for the 
   "Symbian Virtual Platform" and this was the proposed product name of the 
-  QEMU based simulator. For the purpose of this document treat the SVP as 
-  QEMU with the syborg board models.
+  QEMU based simulator. For the purpose of these sources and documents treat the SVP 
+  as QEMU with the syborg board models.
