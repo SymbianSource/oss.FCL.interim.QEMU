@@ -15,7 +15,7 @@ symbian-qemu-0.9.1-12/
 Some notes;
 
 * The source layout for baseport now matches the Symbian Foundation layout, and 
-  will compile correctly if this repository is unpacked to /sf/os/QEMU. Eventually
+  will compile correctly if this repository is unpacked to /sf/adaptation/qemu. Eventually
   the baseport could move into the kernelhwsrv or boardsupport packages, but that
   would imply changing AsspNKernIncludePath in baseport/syborg/variant.mmh
   

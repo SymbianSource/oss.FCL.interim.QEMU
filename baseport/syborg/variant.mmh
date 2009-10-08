@@ -107,7 +107,7 @@ macro FASTTRACE_KERNEL_ALL
 macro __EMI_SUPPORT__
 
 #define VariantTarget(name,ext)     _syborg_##name##.##ext
-#define AsspNKernIncludePath        /sf/os/QEMU/baseport/syborg/specific
+#define AsspNKernIncludePath        /sf/adaptation/qemu/baseport/syborg/specific
 #define VariantMediaDefIncludePath  /epoc32/include/syborg        
 #define PlatformLib		   		    kasyborg.lib
 
@@ -119,7 +119,7 @@ systeminclude	/epoc32/include/memmodel/epoc/mmubase
 systeminclude	/epoc32/include/memmodel/epoc/multiple
 systeminclude	/epoc32/include/memmodel/epoc/multiple/arm
 
-systeminclude	../../../kernelhwsrv/driversupport/socassp/interface
+systeminclude	../../../../os/kernelhwsrv/driversupport/socassp/interface
 
 // Uncomment for T_USERCOMDEB test
 //#define BUILD_TESTS

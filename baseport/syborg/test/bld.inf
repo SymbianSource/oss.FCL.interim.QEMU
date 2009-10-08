@@ -19,22 +19,22 @@ PRJ_PLATFORMS
 ARMV5
 
 PRJ_TESTEXPORTS
-autoexec.bat	                \epoc32\rom\syborg\	//
+autoexec.bat	                /epoc32/rom/syborg/	//
 
 PRJ_TESTMMPFILES
 
 // Drivers
 // requires baseport specific definitions for TIMER and TimeDelta in d_mstim.cpp 
-..\..\..\..\kernelhwsrv\kerneltest\e32test\group\d_mstim		support
+../../../../../os/kernelhwsrv/kerneltest/e32test/group/d_mstim		support
 // requires baseport specific definitions for TIMER and TimeDelta and LongTimeDelta in d_tick.cpp 
-..\..\..\..\kernelhwsrv\kerneltest\e32test\group\d_tick		support
+../../../../../os/kernelhwsrv/kerneltest/e32test/group/d_tick		support
 // requires definitions for KTickPeriodMs and KTicksPerMillisecond. These are baseport specific and require changes to d_latncy
-..\..\..\..\kernelhwsrv\kerneltest\e32test\group\d_latncy		support
-..\..\..\..\kernelhwsrv\kerneltest\e32test\group\d_shadow		support
-..\..\..\..\kernelhwsrv\kerneltest\e32test\group\bm_pdd		support
-//..\..\..\..\kernelhwsrv\kerneltest\e32test\group\d_sharedio		support
+../../../../../os/kernelhwsrv/kerneltest/e32test/group/d_latncy		support
+../../../../../os/kernelhwsrv/kerneltest/e32test/group/d_shadow		support
+../../../../../os/kernelhwsrv/kerneltest/e32test/group/bm_pdd		support
+//../../../../../os/kernelhwsrv/kerneltest/e32test/group/d_sharedio		support
 // needs dma.dll
-//..\..\..\..\kernelhwsrv\kerneltest\e32test\group\d_dma		support  // DMA kernel-side test harness for real DMA framework
+//../../../../../os/kernelhwsrv/kerneltest/e32test/group/d_dma		support  // DMA kernel-side test harness for real DMA framework
 // needs epbusm.dll
-//..\..\..\..\kernelhwsrv\kerneltest\e32test\group\d_medch		support
-..\..\..\..\kernelhwsrv\kerneltest\e32test\group\d_cache		support
+//../../../../../os/kernelhwsrv/kerneltest/e32test/group/d_medch		support
+../../../../../os/kernelhwsrv/kerneltest/e32test/group/d_cache		support

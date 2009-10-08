@@ -32,17 +32,17 @@ specific/variantmediadef.h /epoc32/include/syborg/variantmediadef.h
 
 PRJ_EXTENSIONS
 start		extension		base/genexec
-option		EXTRA_SRC_PATH  $(EXTENSION_ROOT)/../../../kernelhwsrv/kernel/eka/kernel
+option		EXTRA_SRC_PATH  $(EXTENSION_ROOT)/../../../../os/kernelhwsrv/kernel/eka/kernel
 end
 
 PRJ_MMPFILES
-../../../kernelhwsrv/kernel/eka/kernel/ekern
-../../../kernelhwsrv/kernel/eka/kernel/kc_exe
-../../../kernelhwsrv/kernel/eka/kernel/exmoncommon
-../../../kernelhwsrv/kernel/eka/drivers/medint/medint
-../../../kernelhwsrv/userlibandfileserver/fileserver/etshell/eshell
-../../../kernelhwsrv/kernel/eka/drivers/trace/btracex
-../../../kernelhwsrv/kernel/eka/euser/variant_euser
+../../../../os/kernelhwsrv/kernel/eka/kernel/ekern
+../../../../os/kernelhwsrv/kernel/eka/kernel/kc_exe
+../../../../os/kernelhwsrv/kernel/eka/kernel/exmoncommon
+../../../../os/kernelhwsrv/kernel/eka/drivers/medint/medint
+../../../../os/kernelhwsrv/userlibandfileserver/fileserver/etshell/eshell
+../../../../os/kernelhwsrv/kernel/eka/drivers/trace/btracex
+../../../../os/kernelhwsrv/kernel/eka/euser/variant_euser
 
 // SYBORG components
 kasyborg						// Variant library
@@ -70,7 +70,7 @@ svpsnapdriver/snapapp
 PRJ_EXTENSIONS
 start		extension		base/config
 option		PREFIX			_syborg_
-option		HALPATH			$(EXTENSION_ROOT)/../../../kernelhwsrv/halservices
+option		HALPATH			$(EXTENSION_ROOT)/../../../../os/kernelhwsrv/halservices
 option		SOURCE			$(EXTENSION_ROOT)/hal
 end
 
@@ -85,7 +85,7 @@ option		MEMMODEL		multiple
 //option		MEMMODEL		moving
 option		SOURCES			syborg.s
 option		INCLUDES		config.inc syborg.inc
-option		E32PATH			$(EXTENSION_ROOT)/../../../kernelhwsrv/kernel
+option		E32PATH			$(EXTENSION_ROOT)/../../../../os/kernelhwsrv/kernel
 option		EXTRA_INC_PATH	$(EXTENSION_ROOT)/bootstrap
 option		EXTRA_SRC_PATH	$(EXTENSION_ROOT)/bootstrap 
 end

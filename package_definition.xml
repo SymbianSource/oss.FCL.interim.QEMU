@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SystemDefinition schema="3.0.0">
+  <package id="qemu" name="QEMU" levels="hw-if">
+    <collection id="baseport" name="Baseport" level="hw-if">
+      <component id="syborg" name="Syborg" introduced="symbian^2" purpose="optional">
+        <unit bldFile="baseport/syborg" mrp="baseport/syborg/syborg.mrp"/>
+      </component>
+    </collection>
+  </package>
+</SystemDefinition>
