@@ -48,6 +48,9 @@ romchecksum=0x12345678
 
 nowrapper				// no rom header
 
+//MMC/SD not used, exclude MMC partition Library
+#define USE_CUSTOM_MMC_PARTITION    // "none" is a form of customisation
+
 #ifdef UNICODE
 unicode
 #endif
