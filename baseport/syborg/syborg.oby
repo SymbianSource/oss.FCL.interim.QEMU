@@ -35,7 +35,11 @@ define SYBORG_L1		0x0b0a0001
 define VARIANT			syborg
 define VARID			SYBORG_L1
 define ASSP_DIR			EPOCROOT##epoc32\release\syborg
-define ROMMEGS			15		/* !! HEX !! */
+
+// increased size of ROM, due to overflow
+//define ROMMEGS			15		/* !! HEX !! */
+
+define ROMMEGS			50		/* !! HEX !! */
 define PLATFORM_NAME		syborg
 
 #define COLOR
@@ -50,7 +54,9 @@ REM define which serial port Bluetooth protocol uses
 define BLUETOOTH_ESK bt_port2.esk
 
 REM Define whether or not to include USB client support:
-//#define EUSBC
+
+#define EUSBC
+
 
 ROMBUILD_OPTION -no-header 
 

@@ -10,19 +10,21 @@
 * Nokia Corporation - initial contribution.
 *
 * Contributors:
+* Sosco
 *
 * Description:
+* Variant derived from fb.mmp
 *
 */
 
 #include <variant.mmh>
 #include "kernel/kern_ext.mmh"
 
-TARGET			VariantTarget(lcd,dll)
-TARGETTYPE		kext
-
 MACRO __PORTRAIT_DISPLAY__
+MACRO __DISPLAY_WVGA__
 
+TARGET			VariantTarget(lcd_portrait_wvga,dll)
+TARGETTYPE		kext
 
 SYSTEMINCLUDE	AsspNKernIncludePath
 SYSTEMINCLUDE	.

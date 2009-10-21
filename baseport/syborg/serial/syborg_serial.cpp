@@ -156,6 +156,10 @@ void DCommSyborgSoc::EnableTransmit()
 		break;
 	  WriteReg(iPortAddr, SERIAL_DATA, r);
 	}
+
+	iLdd->iTxError = KErrNone;
+	iLdd->iTxCompleteDfc.Add();
+
 }
 
 TUint DCommSyborgSoc::Signals() const

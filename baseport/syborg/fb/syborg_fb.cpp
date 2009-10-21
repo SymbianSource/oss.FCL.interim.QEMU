@@ -197,9 +197,13 @@ TInt DLcdPowerHandler::GetSpecifiedDisplayModeInfo(TInt aMode, TVideoInfoV01& aI
 
   if(aMode != aInfo.iDisplayMode)
 	{
-	  aInfo.iOffsetToFirstPixel = KCOnfigOffsetToFirstPixel;
+
+	  aInfo.iOffsetToFirstPixel = KConfigOffsetToFirstPixel;
+
 	  aInfo.iIsPalettized       = KConfigIsPalettized;
-	  aInfo.iOffsetBetweenLines = KCOnfigOffsetBetweenLines;
+
+	  aInfo.iOffsetBetweenLines = KConfigOffsetBetweenLines;
+
 	  aInfo.iBitsPerPixel       = KConfigBitsPerPixel;
 	}
   return KErrNone;
@@ -208,7 +212,10 @@ TInt DLcdPowerHandler::GetSpecifiedDisplayModeInfo(TInt aMode, TVideoInfoV01& aI
 TInt DLcdPowerHandler::AllocateFrameBuffer()
 {
 	// Allocate physical RAM for video
-	TInt vSize = TSyborg::VideoRamSize();
+
+// Added only the comments
+	TInt vSize = TSyborg::VideoRamSize(); // Maximum display now 854 x 854
+
 
 	NKern::ThreadEnterCS();
 	TInt r = Epoc::AllocPhysicalRam(vSize,Syborg::VideoRamPhys);
@@ -251,8 +258,10 @@ TInt DLcdPowerHandler::AllocateFrameBuffer()
 	iVideoInfo.iSizeInPixels.iWidth  = KConfigLcdWidth;
 	iVideoInfo.iSizeInPixels.iHeight = KConfigLcdHeight;
 	iVideoInfo.iDisplayMode = KConfigLcdDisplayMode;
-	iVideoInfo.iOffsetToFirstPixel = KCOnfigOffsetToFirstPixel;
-	iVideoInfo.iOffsetBetweenLines = KCOnfigOffsetBetweenLines;
+
+	iVideoInfo.iOffsetToFirstPixel = KConfigOffsetToFirstPixel;
+	iVideoInfo.iOffsetBetweenLines = KConfigOffsetBetweenLines;
+
 	iVideoInfo.iIsPalettized = KConfigIsPalettized;
 	iVideoInfo.iBitsPerPixel = KConfigBitsPerPixel;
 	iVideoInfo.iSizeInTwips.iWidth = KConfigLcdWidthInTwips;
@@ -446,8 +455,10 @@ TInt DLcdPowerHandler::Create()
 	iVideoInfo.iSizeInPixels.iWidth  = KConfigLcdWidth;
 	iVideoInfo.iSizeInPixels.iHeight = KConfigLcdHeight;
 	iVideoInfo.iDisplayMode = KConfigLcdDisplayMode;
-	iVideoInfo.iOffsetToFirstPixel = KCOnfigOffsetToFirstPixel;
-	iVideoInfo.iOffsetBetweenLines = KCOnfigOffsetBetweenLines;
+
+	iVideoInfo.iOffsetToFirstPixel = KConfigOffsetToFirstPixel;
+	iVideoInfo.iOffsetBetweenLines = KConfigOffsetBetweenLines;
+
 	iVideoInfo.iIsPalettized = KConfigIsPalettized;
 	iVideoInfo.iBitsPerPixel = KConfigBitsPerPixel;
 	iVideoInfo.iSizeInTwips.iWidth = KConfigLcdWidthInTwips;

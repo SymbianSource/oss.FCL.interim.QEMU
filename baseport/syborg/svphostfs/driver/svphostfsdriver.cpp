@@ -416,7 +416,14 @@ TInt DSVPHostFsChannel::DoRequest(TInt aReqNo, TRequestStatus* aStatus, TAny* a1
 	
 	if (KErrNone != err)
 		{
-		DP("Error %d from DoRequest", err);
+
+		if (err == KErrNotSupported)
+			{
+			err = KErrNone; // trap KErrNotSupported
+			}
+				
+		DP("Error %d from DoRequest %d", err, aReqNo);
+
 		}
 	
 	return err;
@@ -437,6 +444,12 @@ TInt DSVPHostFsChannel::DoControl(TInt aFunction, TAny* a1, TAny* a2)
 
 	if (KErrNone != err)
 		{
+
+		if (err == KErrNotSupported)
+			{
+			err = KErrNone; // trap KErrNotSupported
+			}
+
 		DP("** (SVPHOSTFSDRIVER) Error %d from control function", err);
 		}
 	
@@ -501,7 +514,16 @@ TInt DSVPHostFsChannel::MkDir(TSVPHostFsMkDirInfo* aInfo)
 	SVPWriteReg(device, EArg2, info.iFlags);
 	SVPInvoke(device, RSVPHostFsDriver::EMkDir);
 
-	return SVPReadReg(device, EResult);
+
+	//return SVPReadReg(device, EResult);
+	
+	err = SVPReadReg(device, EResult);
+	
+	if(err == KErrPathNotFound)
+		err = KErrNotFound;
+	
+	return err;
+
 
 	}
 
@@ -637,7 +659,20 @@ TInt DSVPHostFsChannel::Entry(TSVPHostFsEntryInfo* aInfo)
 	SVPWriteReg(device, EArg1, info.iLength);
 	SVPInvoke(device, RSVPHostFsDriver::EEntry);
 
-	RET_IF_ERROR(err, SVPReadReg(device, EResult));
+
+	//RET_IF_ERROR(err, SVPReadReg(device, EResult));
+	
+	err = SVPReadReg(device, EResult);
+	
+	if(err!=KErrNone)
+		{
+		if(err == KErrPathNotFound)
+			err = KErrNotFound;
+		
+		return err;
+		}
+
+	
 
 	TUint32 att = SVPReadReg(device, EArg0);
 	TUint32 modified = SVPReadReg(device, EArg1);
@@ -690,7 +725,20 @@ TInt DSVPHostFsChannel::DirOpen(TSVPHostFsDirOpenInfo* aInfo)
 	SVPWriteReg(device, EArg1, info.iLength);
 	SVPInvoke(device, RSVPHostFsDriver::EDirOpen);
 
-	RET_IF_ERROR(err, SVPReadReg(device, EResult));
+
+	//RET_IF_ERROR(err, SVPReadReg(device, EResult));
+	
+	err = SVPReadReg(device, EResult);
+	
+	if(err!=KErrNone)
+		{
+		
+		if(err==KErrPathNotFound)
+			err=KErrNotFound;
+		
+		return err;
+		}
+
 
 	// handle is in arg 0
 	TUint32 handle = SVPReadReg(device, EArg0);
@@ -719,7 +767,20 @@ TInt DSVPHostFsChannel::FileOpen(TSVPHostFsFileOpenInfo* aInfo)
 	SVPWriteReg(device, EArg3, info.iOpen);
 	SVPInvoke(device, RSVPHostFsDriver::EFileOpen);
 
-	RET_IF_ERROR(err, SVPReadReg(device, EResult));
+
+	//RET_IF_ERROR(err, SVPReadReg(device, EResult));
+	
+	err = SVPReadReg(device, EResult);
+		
+	if(err!=KErrNone)
+		{
+		if(err == KErrPathNotFound)
+			err = KErrNotFound;
+		
+		return err;
+		}
+
+	
 
 	TUint32 handle = SVPReadReg(device, EArg0);
 	TUint32 att = SVPReadReg(device, EArg1);
@@ -797,7 +858,20 @@ TInt DSVPHostFsChannel::FileWrite(TSVPHostFsFileWriteInfo* aInfo)
 	SVPWriteReg(device, EArg3, info.iLength);	
 	SVPInvoke(device, RSVPHostFsDriver::EFileWrite);
 
-	RET_IF_ERROR(err, SVPReadReg(device, EResult));
+
+	// RET_IF_ERROR(err, SVPReadReg(device, EResult));
+	
+	err = SVPReadReg(device, EResult);
+	
+	if(err!=KErrNone)
+		{
+		if(err == KErrPathNotFound)
+			err = KErrNotFound;
+		
+		return err;
+		}
+
+	
 
 	TUint32 len = SVPReadReg(device, EArg0);
 
@@ -831,7 +905,9 @@ TInt DSVPHostFsChannel::FileSetEntry(TSVPHostFsSetEntryInfo* aInfo)
 	{
         DP("** (SVPHOSTFSDRIVER) DSVPHostFsChannel::FileSetEntry()");
 
-	return KErrNotSupported;
+
+	return KErrNone;
+
 	}
 
 TInt DSVPHostFsChannel::DirClose(TUint32 aDrive, TUint32 aHandle)

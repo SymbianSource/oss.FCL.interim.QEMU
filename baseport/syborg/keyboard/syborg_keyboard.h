@@ -144,11 +144,13 @@ const TUint8 KConvertCode[] =
 	/*3c*/ EStdKeyF2,
 	/*3d*/ EStdKeyF3,
 	/*3e*/ EStdKeyF4,
-	/*3f*/ EStdKeyF5,
-	
-	/*40*/ EStdKeyF6,
-	/*41*/ EStdKeyF7,
-	/*42*/ EStdKeyF8,
+
+	/*3f*/ EStdKeyDevice0,	//EStdKeyF5,	SF: Left soft-key [EStdKeyApplication0]
+
+	/*40*/ EStdKeyDevice3,	//EStdKeyF6,	SF: OK key
+	/*41*/ EStdKeyDevice1,	//EStdKeyF7,	SF: Right soft-key
+	/*42*/ EStdKeyApplication0, //EStdKeyF8, SF Menu key
+
 	/*43*/ EStdKeyF9,
 	/*44*/ EStdKeyF10,
 	/*45*/ EStdKeyNull,
@@ -161,7 +163,9 @@ const TUint8 KConvertCode[] =
 	/*4c*/ EStdKeyNull,
 	/*4d*/ EStdKeyRightArrow,
 	/*4e*/ EStdKeyNull,
-	/*4f*/ EStdKeyNull,
+
+	/*4f*/ EStdKeyEnd,
+
 	
 	/*50*/ EStdKeyDownArrow,
 	/*51*/ EStdKeyPageDown,

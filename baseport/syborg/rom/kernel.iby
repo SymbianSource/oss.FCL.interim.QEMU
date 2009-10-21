@@ -53,7 +53,11 @@ device[VARID]=      	\epoc32\release\##KMAIN##\##BUILD##\PIPELIB.LDD 		        \
 extension[VARID]=	\epoc32\release\##KMAIN##\##BUILD##\_##VARIANT##_svphostfsdriver.ldd	\sys\bin\svphostfsdriver.ldd
 file=			\epoc32\release\##KMAIN##\##BUILD##\svphostfsy.fsy			\sys\bin\svphostfsy.fsy
 file=			\epoc32\release\##KMAIN##\##BUILD##\svphostfs.exe			\sys\bin\svphostfs.exe
-file=			\epoc32\release\##KMAIN##\##BUILD##\svphostfsstart.exe			\sys\bin\sysstart.exe
+
+//file=			\epoc32\release\##KMAIN##\##BUILD##\svphostfsstart.exe			\sys\bin\sysstart.exe
+#define CUSTOM_ESTART
+file=				\epoc32\release\##KMAIN##\##BUILD##\_##VARIANT##_e32strt.exe		sys\bin\estart.exe HEAPMAX (0x10000)
+
 
 // Snap Driver
 extension[VARID]=	\epoc32\release\##KMAIN##\##BUILD##\_##VARIANT##_svpsnapdriver.ldd  \sys\bin\svpsnapdriver.ldd
@@ -68,3 +72,7 @@ data=               	\epoc32\rom\##VARIANT##\AUTOEXEC.BAT        					AUTOEXEC.B
 
 extension[VARID]=	\epoc32\release\##KMAIN##\##BUILD##\_##VARIANT##_MEDINT.PDD	    \sys\bin\MEDINT.PDD
 //device[VARID]=	\epoc32\release\##KMAIN##\##BUILD##\D_DEBUG.LDD					\sys\bin\D_DEBUG.LDD
+
+device[VARID]	= \epoc32\release\##KMAIN##\##BUILD##\_##VARIANT##_soundsc.pdd	    \sys\bin\soundsc.pdd
+device[VARID]	= \epoc32\release\##KMAIN##\##BUILD##\esoundsc.ldd				            \sys\bin\esoundsc.ldd
+

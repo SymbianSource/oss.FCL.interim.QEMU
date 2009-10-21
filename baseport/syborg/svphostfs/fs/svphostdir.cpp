@@ -116,9 +116,14 @@ void CSVPHostDirCB::ReadL(TEntry& anEntry)
 			}
 		iPending=EFalse;
 		anEntry=iEntry;
-		if ((iFullName.NameAndExt()==_L("*.*") || anEntry.iName.MatchF(iFullName.NameAndExt())!=KErrNotFound) 
-		    && Mount().MatchEntryAtt(anEntry.iAtt&KEntryAttMaskSupported,iAtt))
-			{
+
+
+		if (Mount().MatchEntryAtt(anEntry.iAtt&KEntryAttMaskSupported,iAtt) == EFalse)
+			continue;
+
+		if (iFullName.NameAndExt()==_L("*.*") || anEntry.iName.MatchF(iFullName.NameAndExt())!=KErrNotFound) 
+
+   			{
 			if (MatchUid())
 				{
 				TParse fileName;

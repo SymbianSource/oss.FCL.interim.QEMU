@@ -23,7 +23,11 @@
 #include "svphostfsy.h"
 
 #define HOST_SVP_DRIVE_SIZE 1024*1024*1024
-#define HOST_SVP_DRIVE_FREE_SIZE 10*1024*1024
+
+// Fixed low mass-memory warning at startup
+//#define HOST_SVP_DRIVE_FREE_SIZE 10*1024*1024
+#define HOST_SVP_DRIVE_FREE_SIZE 100*1024*1024
+
 
 LOCAL_C TInt GetMediaSize(TInt /*aDriveNumber*/,TInt64& aSize,TInt64& aFree)
 //

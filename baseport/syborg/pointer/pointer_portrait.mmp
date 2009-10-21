@@ -10,33 +10,41 @@
 * Nokia Corporation - initial contribution.
 *
 * Contributors:
+* Sosco - derived from pointer.mmp
 *
 * Description:
+* epointer.dll for portrait mode
 *
 */
 
 #include <variant.mmh>
 #include "kernel/kern_ext.mmh"
 
-TARGET			VariantTarget(lcd,dll)
-TARGETTYPE		kext
-
 MACRO __PORTRAIT_DISPLAY__
 
+TARGET			VariantTarget(epointer_portrait,dll)
+TARGETTYPE		kext
+LINKAS			epointer.dll
 
+SYSTEMINCLUDE   .
 SYSTEMINCLUDE	AsspNKernIncludePath
-SYSTEMINCLUDE	.
 
 SOURCEPATH		.
-SOURCE			syborg_fb.cpp
+SOURCE			syborg_pointer.cpp
 
+//LIBRARY			ekern.lib
 LIBRARY			PlatformLib
 
-EPOCALLOWDLLDATA
+//NOEXPORTLIBRARY
 
-UID			    0x1000008d 0x100039e8
+//DEFFILE			../e32/~/empty.def
+//DEFFILE			./~/cmse.def
+
+//NOSTRICTDEF
+
+UID				0x100039cf 0x100000db
 VENDORID        0x70000001
 
-ROMTARGET		lcd.dll
+CAPABILITY 		all
 
-CAPABILITY		all
+

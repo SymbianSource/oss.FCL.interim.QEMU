@@ -20,7 +20,11 @@
 ;---------------------------------------------------------------------------
 
 KHwRamBaseAddr		EQU    0x00000000
+
+; More ram required to boot SF image
 KHwRamSizeMb            EQU    128			; 128MB
+;KHwRamSizeMb            EQU    256			; 256MB
+
 
 KHwNorFlashBaseAddr     EQU    0x40000000
 KHwNorFlashSize         EQU    0x04000000   ; 64MB

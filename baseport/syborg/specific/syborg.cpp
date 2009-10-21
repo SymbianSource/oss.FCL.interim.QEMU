@@ -27,7 +27,7 @@
 
 void TSyborg::Init3()
 {
-//  SetTimerMode(KHwBaseCounterTimer, ETimerModePeriodic); 
+//  SetTimerMode(KHwBaseCounterTimer, ETimerModePeriodic);
 //  EnableTimer(KHwBaseCounterTimer, EEnable);
 }
 
@@ -105,10 +105,12 @@ EXPORT_C void TSyborg::MarkDebugPortOff()
 
 EXPORT_C TInt TSyborg::VideoRamSize()
 {
-  return 4*640*480;
+
+  return 4*854*854; // Now allow for 854 x 854 display, instead of 480 x 640
+
 }
 
-// !@! 
+// !@!
 EXPORT_C TPhysAddr TSyborg::VideoRamPhys()
 {
 #if 0

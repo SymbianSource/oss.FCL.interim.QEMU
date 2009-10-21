@@ -48,11 +48,23 @@ PRJ_MMPFILES
 kasyborg						// Variant library
 serial/serial					// Serial / UART ports
 fb/fb							// Framebuffer
+
+fb/fb_landscape
+fb/fb_portrait
+fb/fb_portrait_wvga
+
 keyboard/keyboard				// Keyboard
 pointer/pointer					// Pointer
+
+pointer/pointer_landscape.mmp
+pointer/pointer_portrait.mmp
+
 monitor/monap					// Crash Debugger output
 
 keymap/keymap					// Key mapping library
+
+estart/estart				// Customised estart to kick-start hostfs files system
+
 
 // platform device library - for flattened device tree (FDT)
 svpplatform/fdt
@@ -66,6 +78,10 @@ svphostfs/svphostfsy
 //Snap Device
 svpsnapdriver/svpsnapdriver
 svpsnapdriver/snapapp
+
+
+//Add Sound Driver
+soundsc\soundsc
 
 PRJ_EXTENSIONS
 start		extension		base/config

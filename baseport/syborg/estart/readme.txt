@@ -15,28 +15,7 @@
 *
 */
 
-#include <variant.mmh>
-#include "kernel/kern_ext.mmh"
 
-TARGET			VariantTarget(lcd,dll)
-TARGETTYPE		kext
-
-MACRO __PORTRAIT_DISPLAY__
+See \sf\os\kernelhwsrv\userlibandfileserver\fileserver\estart
 
 
-SYSTEMINCLUDE	AsspNKernIncludePath
-SYSTEMINCLUDE	.
-
-SOURCEPATH		.
-SOURCE			syborg_fb.cpp
-
-LIBRARY			PlatformLib
-
-EPOCALLOWDLLDATA
-
-UID			    0x1000008d 0x100039e8
-VENDORID        0x70000001
-
-ROMTARGET		lcd.dll
-
-CAPABILITY		all

@@ -32,7 +32,11 @@ multikernel
 bootbinary=		KERNEL_DIR\_PLATFORM_NAME_bootloader_bootrom.bin
 
 debugport 0
-romsize=0x2000000
+
+// Fixed rom over flow
+//romsize=0x2000000
+romsize=0x8000000
+
 romlinearbase=0x80000000
 romalign=0x10
 kerneldataaddress=0xC8000000
@@ -64,14 +68,35 @@ extension[VARID]=	KERNEL_DIR\DEBUG_DIR\kdebug.dll			        \sys\bin\kdebug.dll
 // IEEE-mode VFP support
 extension[VARID]=	KERNEL_DIR\DEBUG_DIR\evfp.dll			        \sys\bin\evfp.dll
 
-extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_lcd.dll		\sys\bin\lcd.dll
+
+// Changes allowing us of either portrait or landscape mode
+//extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_lcd.dll		\sys\bin\lcd.dll
+#ifdef _PORTRAIT_
+
+#	ifdef _WVGA_
+extension[VARID]=KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_lcd_portrait_wvga.dll		    \sys\bin\lcd.dll
+#	else //_WVGA_
+extension[VARID]=KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_lcd_portrait.dll		    \sys\bin\lcd.dll
+#	endif //_WVGA_
+
+#else
+extension[VARID]=KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_lcd_landscape.dll		    \sys\bin\lcd.dll
+#endif
 
 device[VARID]=		KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_eserial.pdd		\sys\bin\euart1.pdd
 device[VARID]=		KERNEL_DIR\DEBUG_DIR\ecomm.ldd				\sys\bin\ecomm.ldd
 
 extension[VARID]=	KERNEL_DIR\DEBUG_DIR\elocd.ldd				\sys\bin\elocd.ldd
 
-extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_epointer.dll	\sys\bin\epointer.dll
+
+// Changes allowing us of either portrait or landscape mode
+//extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_epointer.dll	\sys\bin\epointer.dll
+#ifdef _PORTRAIT_
+extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_epointer_portrait.dll	\sys\bin\epointer.dll
+#else
+extension[VARID]=KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_epointer_landscape.dll	        \sys\bin\epointer.dll
+#endif
+
 extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_medint.pdd	        \sys\bin\medint.pdd
 
 extension[VARID]=	KERNEL_DIR\DEBUG_DIR\exstart.dll		 	\sys\bin\exstart.dll
@@ -80,13 +105,18 @@ extension[VARID]=	KERNEL_DIR\DEBUG_DIR\exstart.dll		 	\sys\bin\exstart.dll
 extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_ekeyb.dll		\sys\bin\ekeyb.dll
 
 // Kernel pipe
-device[VARID]=		KERNEL_DIR\DEBUG_DIR\pipelib.ldd			\sys\bin\pipelib.ldd
+
+//device[VARID]	=KERNEL_DIR\DEBUG_DIR\pipelib.ldd					    \sys\bin\pipelib.ldd
+
 
 // Host Filesystem
 extension[VARID]=	KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_svphostfsdriver.ldd sys\bin\svphostfsdriver.ldd
 file=			KERNEL_DIR\DEBUG_DIR\svphostfsy.fsy			sys\bin\svphostfsy.fsy
 file=			KERNEL_DIR\DEBUG_DIR\svphostfs.exe			sys\bin\svphostfs.exe
-file=			KERNEL_DIR\DEBUG_DIR\svphostfsstart.exe			sys\bin\sysstart.exe
+
+// Conflicts with /epoc32/rom/include/core/os/starter.iby
+//file=			KERNEL_DIR\DEBUG_DIR\svphostfsstart.exe			sys\bin\sysstart.exe
+
 
 // file=			KERNEL_DIR\DEBUG_DIR\stdnew.dll				sys\bin\stdnew.dll
 
@@ -98,10 +128,17 @@ file=			KERNEL_DIR\DEBUG_DIR\snapapp.exe			sys\bin\snapapp.exe
 data=			EPOCROOT##epoc32\rom\syborg\estart.txt			\sys\data\estart.txt
 
 define	HAL_DLL		_PLATFORM_NAME_hal.dll
-define	ESTART_EXE	e32strt.exe
+
+//define	ESTART_EXE	e32strt.exe
+define	ESTART_EXE		_PLATFORM_NAME_e32strt.exe	// customised ESTART
+
 define	KEYMAP_FILE	_PLATFORM_NAME_ekdata
 #define	SCDV_DLL        _PLATFORM_NAME_scdv.dll
 #define	EUSER_DLL	_PLATFORM_NAME_euser.dll
+
+
+device[VARID]	=KERNEL_DIR\DEBUG_DIR\_PLATFORM_NAME_soundsc.pdd	    \sys\bin\soundsc.pdd
+device[VARID]	=KERNEL_DIR\DEBUG_DIR\esoundsc.ldd				            \sys\bin\esoundsc.ldd
 
 #endif  // __BASE_SYBORG_IBY__
 

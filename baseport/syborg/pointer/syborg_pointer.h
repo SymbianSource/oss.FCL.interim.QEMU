@@ -60,15 +60,34 @@ public:
   static void RxDfc(TAny* aPtr );
   static void Process(TPointerRv *i, struct PData *);
 
-  TDfc iRxDfc;
+  void DisplayPointer();
+
+
+
+  //TDfc iRxDfc;
+  TDfcQue iDfcQue;
+  TDfc* iRxDfc;
+
 	
   TBool iPointerOn;       // cursor visiability
   TInt  iScreenWidth;
   TInt  iScreenHeight;
   TInt  iDisplayMode;
 
+  TInt  iVideoMem;
+  TInt  iOffSetBetweenEachLine;
+
+
   TInt ix,iy;
   TInt iLastBut;
+
+
+  TBool iFirstTime;
+  TInt iXleft;
+  TInt iXright;
+  TInt iYtop;
+  TInt iYbottom;
+  TInt iImageStore[100];
 
   
  public:

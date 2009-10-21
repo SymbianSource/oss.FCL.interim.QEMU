@@ -10,6 +10,7 @@
 * Nokia Corporation - initial contribution.
 *
 * Contributors:
+* Sosco - bug fixes
 *
 * Description:
 *
@@ -92,6 +93,19 @@ TInt RSVPHostFsDriver::FileOpen(TSVPHostFsFileOpenInfo& aInfo)
 TInt RSVPHostFsDriver::FileClose(TUint32 aDrive, TUint32 aHandle)
 	{
 	DP(_L("** (rsvphostfsdriver.cpp) RSVPHostFsDriver::FileClose()"));
+
+	// If attempt is made to access a file which does
+	// not exist, it will not give a handle to close afterwards.
+	// Attempting to call FileClose on this with an invalid handle
+	// results in the error code KErrBadHandle (-8) being returned.
+	// Some UI's cannot cope properly with this error code, resulting
+	// in various servers repeatedly closing and reopening. To prevent
+	// this,we trap it here and return KErrNone as though the call
+	// completed properly without error.
+	if (aHandle == 0)  
+	  return KErrNone; // Bad handle, so exit immediately with KErrNone
+	else
+
 	return DoSVPRequest(EFileClose, (TAny *)aDrive, (TAny *)aHandle);
 	}
 
@@ -140,6 +154,20 @@ TInt RSVPHostFsDriver::DirOpen(TSVPHostFsDirOpenInfo& aInfo)
 TInt RSVPHostFsDriver::DirClose(TUint32 aDrive, TUint32 aHandle)
 	{
 	DP(_L("** (rsvphostfsdriver.cpp) RSVPHostFsDriver::DirClose()"));
+
+
+	// If attempt is made to read a directory which does
+	// not exist, it will not give a handle to close afterwards.
+	// Attempting to call DirClose on this with an invalid handle
+	// results in the error code KErrBadHandle (-8) being returned.
+	// Some UI's cannot cope properly with this error code, resulting
+	// in various servers repeatedly closing and reopening. To prevent
+	// this,we trap it here and return KErrNone as though the call
+	// completed properly without error.
+	if (aHandle == 0)  
+	  return KErrNone; // Bad handle, so exit immediately with KErrNone
+	else
+
 	return DoSVPRequest(EDirClose, (TAny *)aDrive, (TAny *)aHandle);
 	}
 
