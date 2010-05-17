@@ -49,7 +49,7 @@ typedef struct
 #   define SET_GUI_AREA_Y0(area_ptr,y0)    (area_ptr)->y0 = (y0)
 #   define SET_GUI_AREA_X1(area_ptr,x1)    (area_ptr)->x1 = (x1)
 #   define SET_GUI_AREA_Y1(area_ptr,y1)    (area_ptr)->y1 = (y1)
-#elif define WIDTH_HEIGHT
+#elif defined WIDTH_HEIGHT
 #   define GET_GUI_AREA_WIDTH(area_ptr)    (area_ptr)->width
 #   define GET_GUI_AREA_HEIGHT(area_ptr)   (area_ptr)->height
 #   define GET_GUI_AREA_X1(area_ptr)       ((area_ptr)->x0 + (area_ptr)->width)
